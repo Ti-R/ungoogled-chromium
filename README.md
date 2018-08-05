@@ -1,3 +1,27 @@
+# ungoogled-chromium TR
+
+I did a fork of ungoogled-chromium repository.
+
+I didn't change it much,
+The old readme under this short description is still valid,
+
+I create a branch with the version 67.0.3396.87-3 to add patch for a new logo.  
+
+![New logo](http://www.ti-r.com/images/python/icon_for_chromium.jpg)
+
+To represent the "ungoogled" part inside the logo, a part of it got wash out of colors.
+The other part of the logo got more vivid color to show how great this version is!
+
+I also changed the tab to rectangled corner.
+After the patch was made, I just saw the Chromium v70 got the same feature... rectangled corner...
+I thought the day of rectangle corner wil never came, but it did ;)
+
+Anyway, the logo patch still remain with the rectangled corner.
+
+All under the branche name "release/67.0.3396.87-3/Ti-R_v1.0"
+
+Tag 67.0.3396.87-3_Ti-R_v1.0
+
 # ungoogled-chromium
 
 **Modifications to Google Chromium for removing Google integration and enhancing privacy, control, and transparency**
