@@ -1,4 +1,4 @@
-# ungoogled-chromium TR
+# ungoogled-chromium Ti-R
 
 I did a fork of ungoogled-chromium repository.
 
