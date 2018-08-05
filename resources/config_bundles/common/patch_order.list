@@ -101,3 +101,4 @@ ungoogled-chromium/fingerprinting-flag-client-rects-noise.patch
 ungoogled-chromium/fix-building-without-safebrowsing.patch
 
 Ti-R-patchset/replace-chromium_logo_by_ti-r_chromium_reworked_logo.patch
+Ti-R-patchset/set-chromium_with_rectangled_tab_corner.patch

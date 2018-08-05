@@ -1,0 +1,74 @@
+diff --git a/chrome/browser/ui/layout_constants.cc b/chrome/browser/ui/layout_constants.cc
+index fa868bb99..43eb61326 100644
+--- a/chrome/browser/ui/layout_constants.cc
++++ b/chrome/browser/ui/layout_constants.cc
+@@ -66,7 +66,10 @@ int GetLayoutConstant(LayoutConstant constant) {
+       // further away from the tab. The distance is 8 DIP from the point at
+       // which the last tab's endcap intersects with the tabstrip separator,
+       // which is actually 6 DIP from the last tab's right point.
+-      constexpr int kSpacing[] = {-5, -6, 6, -5};
++// BEGIN - Ti-R - Rectangle tabs
++     // constexpr int kSpacing[] = {-5, -6, 6, -5};
++      constexpr int kSpacing[] = {0, -6, 6, -5};
++// END - Ti-R - Rectangle tabs
+       return kSpacing[mode];
+     }
+     case TAB_AFTER_TITLE_PADDING:
+@@ -102,7 +105,10 @@ gfx::Insets GetLayoutInsets(LayoutInset inset) {
+   const int mode = ui::MaterialDesignController::GetMode();
+   switch (inset) {
+     case TAB: {
+-      constexpr int kTabHorizontalInset[] = {16, 18, 24, 16};
++      // BEGIN - Ti-R - Rectangle tabs
++      constexpr int kTabHorizontalInset[] = {4, 8, 12, 8};
++      //constexpr int kTabHorizontalInset[] = {4, 8, 12, 8};
++      // END - Ti-R - Rectangle tabs
+       return gfx::Insets(1, kTabHorizontalInset[mode]);
+     }
+     case TOOLBAR_BUTTON:
+diff --git a/chrome/browser/ui/views/tabs/tab.cc b/chrome/browser/ui/views/tabs/tab.cc
+index 919215d23..65b17f6bc 100644
+--- a/chrome/browser/ui/views/tabs/tab.cc
++++ b/chrome/browser/ui/views/tabs/tab.cc
+@@ -101,7 +101,10 @@ const double kSelectedTabThrobScale = 0.95 - kSelectedTabOpacity;
+ //
+ // The value returned here must be at least Tab::kMinimumEndcapWidth.
+ float GetTabEndcapWidth() {
+-  return GetLayoutInsets(TAB).left() - 0.5f;
++ // BEGIN - Ti-R - Rectangle tabs
++  return GetLayoutInsets(TAB).left();
++//  return GetLayoutInsets(TAB).left() - 0.5f;
++ // END - Ti-R - Rectangle tabs
+ }
+ 
+ void DrawHighlight(gfx::Canvas* canvas,
+@@ -490,8 +493,11 @@ float Tab::GetInverseDiagonalSlope() {
+   //   so the diagonal is ((height - 1.5 - 1.5) * scale - 1 - (scale - 1)) px
+   //   high.  Simplifying this gives (height - 4) * scale px, or (height - 4)
+   //   DIP.
+-  return (GetTabEndcapWidth() - kMinimumEndcapWidth) /
+-         (Tab::GetMinimumInactiveSize().height() - 4);
++  // BEGIN - Ti-R - Rectangle tabs
++  //return (GetTabEndcapWidth() - kMinimumEndcapWidth) /
++  //       (Tab::GetMinimumInactiveSize().height() - 4);
++  return 0;
++  // BEGIN - Ti-R - Rectangle tabs
+ }
+ 
+ // static
+diff --git a/chrome/browser/ui/views/tabs/tab.h b/chrome/browser/ui/views/tabs/tab.h
+index 095529829..fd51ba1a1 100644
+--- a/chrome/browser/ui/views/tabs/tab.h
++++ b/chrome/browser/ui/views/tabs/tab.h
+@@ -55,7 +55,10 @@ class Tab : public gfx::AnimationDelegate,
+   static const char kViewClassName[];
+ 
+   // The combined width of the curves at the top and bottom of the endcap.
+-  static constexpr float kMinimumEndcapWidth = 4;
++  // BEGIN - Ti-R - Rectangle tabs
++  static constexpr float kMinimumEndcapWidth = 0;
++  //static constexpr float kMinimumEndcapWidth = 4;
++  // END - Ti-R - Rectangle tabs
+ 
+   Tab(TabController* controller, gfx::AnimationContainer* container);
+   ~Tab() override;
