@@ -22,6 +22,10 @@ All under the branche name "release/67.0.3396.87-3/Ti-R_v1.0"
 
 Tag 67.0.3396.87-3_Ti-R_v1.0
 
+You can download already build binaries for Windows on my website.
+http://www.ti-r.com
+
+
 # ungoogled-chromium
 
 **Modifications to Google Chromium for removing Google integration and enhancing privacy, control, and transparency**
