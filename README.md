@@ -13,7 +13,7 @@ To represent the "ungoogled" part inside the logo, a part of it got wash out of 
 The other part of the logo got more vivid color to show how great this version is!
 
 I also changed the tab to rectangled corner.
-After the patch was made, I just saw the Chromium v70 got the same feature... rectangled corner...
+After the patch was made, I just saw the Chromium v69 got the same feature... rectangled corner...
 I thought the day of rectangle corner wil never came, but it did ;)
 
 Anyway, the logo patch still remain with the rectangled corner.
